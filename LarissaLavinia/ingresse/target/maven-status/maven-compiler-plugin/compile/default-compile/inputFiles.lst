@@ -1,0 +1,11 @@
+/home/larissa_ferreira/My-Projects/my-workspace-spring/ingresse/src/main/java/br/com/ingresse/DTOs/UserDTO.java
+/home/larissa_ferreira/My-Projects/my-workspace-spring/ingresse/src/main/java/br/com/ingresse/IngresseApplication.java
+/home/larissa_ferreira/My-Projects/my-workspace-spring/ingresse/src/main/java/br/com/ingresse/controllers/UserController.java
+/home/larissa_ferreira/My-Projects/my-workspace-spring/ingresse/src/main/java/br/com/ingresse/enums/Status.java
+/home/larissa_ferreira/My-Projects/my-workspace-spring/ingresse/src/main/java/br/com/ingresse/repositories/IComboRepository.java
+/home/larissa_ferreira/My-Projects/my-workspace-spring/ingresse/src/main/java/br/com/ingresse/repositories/IMovieRepository.java
+/home/larissa_ferreira/My-Projects/my-workspace-spring/ingresse/src/main/java/br/com/ingresse/repositories/IOrderRepository.java
+/home/larissa_ferreira/My-Projects/my-workspace-spring/ingresse/src/main/java/br/com/ingresse/repositories/ISessionRepository.java
+/home/larissa_ferreira/My-Projects/my-workspace-spring/ingresse/src/main/java/br/com/ingresse/repositories/ITicketRepository.java
+/home/larissa_ferreira/My-Projects/my-workspace-spring/ingresse/src/main/java/br/com/ingresse/repositories/IUserRepository.java
+/home/larissa_ferreira/My-Projects/my-workspace-spring/ingresse/src/main/java/br/com/ingresse/services/UserService.java
