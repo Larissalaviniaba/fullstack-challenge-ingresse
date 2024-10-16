@@ -35,13 +35,13 @@ public class UserController {
 		return ResponseEntity.ok(user);
 	}
 	
-	@GetMapping("/{cpf}")
+	@GetMapping("/cpf/{cpf}")
 	public ResponseEntity<UserDTO> findByCpf(@PathVariable String cpf) {
 		UserDTO user = userService.findByCpf(cpf);
 		return ResponseEntity.ok(user);
 	}
 
-	@GetMapping("/{email}")
+	@GetMapping("/email/{email}")
 	public ResponseEntity<UserDTO> findByEmail(@PathVariable String email) {
 		UserDTO user = userService.findByEmail(email);
 		return ResponseEntity.ok(user);
@@ -61,7 +61,8 @@ public class UserController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<UserDTO> updateUser(@PathVariable UUID id, @RequestBody User user) {
+	public ResponseEntity<UserDTO> updateUser(@PathVariable UUID id, @RequestBody UserCreateDTO userCreateDTO) {
+		User user = mapper.map(userCreateDTO, User.class);
 		UserDTO updatedUser = userService.updateUser(id, user);
 		return ResponseEntity.status(HttpStatus.OK).body(updatedUser);
 	}
