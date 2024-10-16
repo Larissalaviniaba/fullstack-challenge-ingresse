@@ -1,70 +1,77 @@
 package br.com.ingresse.services;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import br.com.ingresse.DTOs.UserDTO;
 import br.com.ingresse.entities.User;
 import br.com.ingresse.repositories.IUserRepository;
+import lombok.AllArgsConstructor;
 
 @Service
+@AllArgsConstructor
 public class UserService {
-	@Autowired
-	private IUserRepository userRepository;
 
-	public User findById(UUID id) {
-		Optional<User> user = this.userRepository.findById(id);
-		if (user.isEmpty()) {
-			throw new NullPointerException("Usuário não encontrado!");
-		}
-		return user.get();
+	private final IUserRepository userRepository;
+	private final ModelMapper mapper;
+	
+	public UserDTO findById(UUID id) {
+	    User user = this.userRepository.findById(id)
+	        .orElseThrow(() -> new NoSuchElementException("Usuário não encontrado!"));
+	    return mapper.map(user, UserDTO.class);
 	}
 
-	public User findBycpf(String cpf) {
-		Optional<User> user = this.userRepository.findByCpf(cpf);
-		if (user.isEmpty()) {
-			throw new NullPointerException("Usuário não encontrado!");
-		}
-		return user.get();
+	public UserDTO findByCpf(String cpf) {
+		User user = this.userRepository.findByCpf(cpf)
+				.orElseThrow(()-> new NoSuchElementException("Usuário não encontrado!"));
+		return mapper.map(user, UserDTO.class);
 	}
 
-	public User findByEmail(String email) {
+	public UserDTO findByEmail(String email) {
 		Optional<User> user = this.userRepository.findByEmail(email);
 		if (user.isEmpty()) {
-			throw new NullPointerException("Usuário não encontrado!");
+			throw new NoSuchElementException("Usuário não encontrado!");
 		}
-		return user.get();
-	}
-	
-	public List<User> findAll(){
-		List<User> users = this.userRepository.findAll();
-		return users;
+		return mapper.map(user, UserDTO.class);
 	}
 
-	public User createUser(User user) {
-		return this.userRepository.save(user);
+	public List<UserDTO> findAll() {
+		List<User> users = userRepository.findAll();
+		return users.stream().map(user -> mapper.map(user, UserDTO.class)).collect(Collectors.toList());
 	}
 
-	public User updateUser(UUID id, User updateUser) {
+	public UserDTO createUser(User user) {
+		User userCreated = this.userRepository.save(user);
+		return mapper.map(userCreated, UserDTO.class);
+	}
+
+	public UserDTO updateUser(UUID id, User updateUser) {
 		User user = this.userRepository.findById(id)
 				.orElseThrow(() -> new NoSuchElementException("Usuário não encontrado!"));
-		if(updateUser.getName() != null) user.setName(user.getName());
-		if(updateUser.getEmail() != null) user.setEmail(user.getEmail());
-		if(updateUser.getPassword() != null) user.setPassword(user.getPassword());
-		if(updateUser.getCpf() != null) user.setCpf(user.getCpf());
-		if(updateUser.getBirthDate() != null) user.setBirthDate(user.getBirthDate());
-		user.setUpdatedDate(LocalDateTime.now());
-		
-		return this.userRepository.save(user);
+		if (updateUser.getName() != null)
+			user.setName(updateUser.getName());
+		if (updateUser.getEmail() != null)
+			user.setEmail(updateUser.getEmail());
+		if (updateUser.getPassword() != null)
+			user.setPassword(updateUser.getPassword());
+		if (updateUser.getCpf() != null)
+			user.setCpf(updateUser.getCpf());
+		if (updateUser.getBirthDate() != null)
+			user.setBirthDate(updateUser.getBirthDate());
+
+		User userUpdeted = this.userRepository.save(user);
+
+		return mapper.map(userUpdeted, UserDTO.class);
 	}
 
 	public void deleteUser(UUID id) {
-		if(!this.userRepository.existsById(id)) {
+		if (!this.userRepository.existsById(id)) {
 			throw new NoSuchElementException("Usuário não encontrado!");
 		}
 		this.userRepository.deleteById(id);

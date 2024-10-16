@@ -4,20 +4,18 @@ import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-public class UserDTO {
-	
+public class UserCreateDTO {
+
 	private String name;
 	private String email;
 	private String cpf;
+	private String password;
 	private LocalDateTime birthDate;
 	private LocalDateTime createdDate;
 	private LocalDateTime updatedDate;
 }
-
