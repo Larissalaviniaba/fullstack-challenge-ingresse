@@ -7,6 +7,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import br.com.ingresse.DTOs.UserDTO;
@@ -41,8 +42,8 @@ public class UserService {
 		return mapper.map(user, UserDTO.class);
 	}
 
-	public List<UserDTO> findAll() {
-		List<User> users = userRepository.findAll();
+	public List<UserDTO> findAll(Specification<User> userSpecification) {
+		List<User> users = userRepository.findAll(userSpecification);
 		return users.stream().map(user -> mapper.map(user, UserDTO.class)).collect(Collectors.toList());
 	}
 
