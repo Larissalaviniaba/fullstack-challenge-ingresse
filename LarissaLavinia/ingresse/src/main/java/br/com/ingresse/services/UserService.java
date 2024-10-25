@@ -2,7 +2,6 @@ package br.com.ingresse.services;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -35,10 +34,8 @@ public class UserService {
 	}
 
 	public UserDTO findByEmail(String email) {
-		Optional<User> user = this.userRepository.findByEmail(email);
-		if (user.isEmpty()) {
-			throw new NoSuchElementException("Usuário não encontrado!");
-		}
+		User user = this.userRepository.findByEmail(email)
+				.orElseThrow(()-> new NoSuchElementException("Usuário não encontrado!"));
 		return mapper.map(user, UserDTO.class);
 	}
 
@@ -72,10 +69,9 @@ public class UserService {
 	}
 
 	public void deleteUser(UUID id) {
-		if (!this.userRepository.existsById(id)) {
-			throw new NoSuchElementException("Usuário não encontrado!");
-		}
-		this.userRepository.deleteById(id);
+		User user = this.userRepository.findById(id)
+		        .orElseThrow(() -> new NoSuchElementException("Usuário não encontrado!"));
+		this.userRepository.delete(user);
 	}
 
 }
