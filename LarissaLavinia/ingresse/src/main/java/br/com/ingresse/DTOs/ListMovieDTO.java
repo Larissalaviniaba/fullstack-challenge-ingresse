@@ -1,0 +1,23 @@
+package br.com.ingresse.DTOs;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import br.com.ingresse.entities.Movie;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class ListMovieDTO {
+	
+	@JsonProperty("results")
+	private List<Movie> results;
+}

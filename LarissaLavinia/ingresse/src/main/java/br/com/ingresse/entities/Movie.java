@@ -1,19 +1,15 @@
 package br.com.ingresse.entities;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,10 +19,12 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Movie {
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonIgnoreProperties
+	private int id;
 	
 	@Column(nullable = false)
 	@Setter
@@ -40,9 +38,10 @@ public class Movie {
 	@Setter
 	private String genero;
 	
-	@Column(name= "poster_url", nullable = false)
+	@JsonProperty("poster_path")
+	@Column(name= "poster_path", nullable = false)
 	@Setter
-	private String posterUrl;
+	private String posterPath;
 	
 	@Column(name= "created_at", nullable = false)
 	private LocalDateTime createdDate;
@@ -51,7 +50,4 @@ public class Movie {
 	@Setter
 	private LocalDateTime updatedDate;
 	
-	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, orphanRemoval = true)
-	@JsonIgnore
-	private List<Session> sessions = new ArrayList<>();
 }
