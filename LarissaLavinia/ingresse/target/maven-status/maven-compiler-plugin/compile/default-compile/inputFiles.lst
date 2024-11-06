@@ -1,7 +1,11 @@
+/home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/DTOs/ListMovieDTO.java
 /home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/DTOs/UserCreateDTO.java
 /home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/DTOs/UserDTO.java
 /home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/IngresseApplication.java
+/home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/configs/HttpClientConfig.java
 /home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/configs/Mapper.java
+/home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/configs/ObjectMapperConfig.java
+/home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/controllers/MovieController.java
 /home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/controllers/UserController.java
 /home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/entities/Combo.java
 /home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/entities/Movie.java
@@ -18,4 +22,6 @@
 /home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/repositories/ISessionRepository.java
 /home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/repositories/ITicketRepository.java
 /home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/repositories/IUserRepository.java
+/home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/services/ApiMovieService.java
+/home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/services/MovieService.java
 /home/larissa_ferreira/My-Projects/fullstack-challenge-ingresse/LarissaLavinia/ingresse/src/main/java/br/com/ingresse/services/UserService.java

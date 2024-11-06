@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: br.com.ingresse.services.UserServiceTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.373 s -- in br.com.ingresse.services.UserServiceTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.908 s -- in br.com.ingresse.services.UserServiceTest
