@@ -19,23 +19,23 @@ import lombok.Setter;
 
 @Entity
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class OrderItem {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
 	
-	@Column(nullable = false)
 	@Setter
+	@Column(nullable = false)
 	private Double price;
 	
 	@Column(name= "created_at", nullable = false)
 	private LocalDateTime createdDate;
 	
-	@Column(name= "updated_at", nullable = false)
 	@Setter
+	@Column(name= "updated_at", nullable = false)
 	private LocalDateTime updatedDate;
 	
 	@ManyToOne

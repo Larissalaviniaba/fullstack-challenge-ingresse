@@ -21,43 +21,43 @@ import lombok.Setter;
 
 @Entity
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Ticket {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
 	
-	@Column(nullable = false)
 	@Setter
+	@Column(nullable = false)
 	private String name;
 	
-	@Column(nullable = false)
 	@Setter
+	@Column(nullable = false)
 	private String cpf;
 	
-	@Column(name="seat_number", nullable = false)
 	@Setter
+	@Column(name="seat_number", nullable = false)
 	private Integer seatNumber;
 	
-	@Column(length = 100, nullable = false)
-	@Enumerated(EnumType.STRING)
 	@Setter
+	@Enumerated(EnumType.STRING)
+	@Column(length = 100, nullable = false)
 	private Status status;
 	
-	@Column(nullable = false)
 	@Setter
+	@Column(nullable = false)
 	private Double price;
 	
-	@Column(name= "reservation_time", nullable = false)
 	@Setter
+	@Column(name= "reservation_time", nullable = false)
 	private LocalDateTime reservationTime;
 	
 	@Column(name= "created_at", nullable = false)
 	private LocalDateTime createdDate;
 	
-	@Column(name= "updated_at", nullable = false)
 	@Setter
+	@Column(name= "updated_at", nullable = false)
 	private LocalDateTime updatedDate;
 	
 	@OneToOne(mappedBy = "ticket")

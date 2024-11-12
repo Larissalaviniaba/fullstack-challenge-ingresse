@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class HttpClientConfig { // Renamed class to avoid confusion
+public class HttpClientConfig {
     @Bean
-    HttpClient createHttpClient() { // Renamed method to avoid circular reference
-        return HttpClient.newHttpClient(); // Example configuration
+    HttpClient createHttpClient() {
+        return HttpClient.newHttpClient();
     }
 }

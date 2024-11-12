@@ -21,29 +21,29 @@ import lombok.Setter;
 
 @Entity
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Combo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
 	
-	@Column(nullable = false)
 	@Setter
-	private Double price;
-	
 	@Column(nullable = false)
-	@Setter
 	private String name;
+	
+	@Setter
+	@Column(nullable = false)
+	private Double price;
 	
 	@Column(name= "created_at", nullable = false)
 	private LocalDateTime createdDate;
 	
-	@Column(name= "updated_at", nullable = false)
 	@Setter
+	@Column(name= "updated_at", nullable = false)
 	private LocalDateTime updatedDate;
 	
-	@OneToMany(mappedBy = "combo", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
+	@OneToMany(mappedBy = "combo", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<OrderItem> orderItens = new ArrayList<>();
 }

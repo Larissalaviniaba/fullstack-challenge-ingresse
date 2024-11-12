@@ -6,14 +6,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-@AllArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
 public class UserCreateDTO {
 
+	private String cpf;
 	private String name;
 	private String email;
-	private String cpf;
 	private String password;
 	private LocalDateTime birthDate;
 	private LocalDateTime createdDate;

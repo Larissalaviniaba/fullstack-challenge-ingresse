@@ -13,11 +13,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ListMovieDTO {
-	
+
 	@JsonProperty("results")
 	private List<Movie> results;
 }

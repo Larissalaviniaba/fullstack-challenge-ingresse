@@ -27,26 +27,18 @@ public class MovieService {
 		return movies;
 	}
 
-	public List<Movie> createMovies(List<Movie> movies) {
+	public List<Movie> saveMovies(List<Movie> movies) {
 		movies.forEach(movie -> {
-//	        if (movie.getCreatedDate() == null) {
-//	            movie.setCreatedDate(LocalDateTime.now());
-//	        }
-//	        
-//	        if (movie.getUpdatedDate() == null) {
-//	            movie.setUpdatedDate(LocalDateTime.now());
-//	        }
-	        
-	        if (movie.getPosterPath() != null) {
-	            movie.setPosterPath(IMAGE_BASE_URL + movie.getPosterPath());
-	        }
-	    });
-		
+			if (movie.getPosterPath() != null) {
+				movie.setPosterPath(IMAGE_BASE_URL + movie.getPosterPath());
+			}
+		});
+
 		List<Movie> moviesSaved = movieRepository.saveAll(movies);
 		return moviesSaved;
 	}
 
-	public void deleteMovies(List<Movie> movies) {
-		movieRepository.deleteAll(movies);
+	public void deleteMovies() {
+		movieRepository.deleteAll();
 	}
 }

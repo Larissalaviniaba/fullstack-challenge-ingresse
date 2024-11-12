@@ -18,24 +18,24 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class UserService {
 
-	private final IUserRepository userRepository;
 	private final ModelMapper mapper;
-	
+	private final IUserRepository userRepository;
+
 	public UserDTO findById(UUID id) {
-	    User user = this.userRepository.findById(id)
-	        .orElseThrow(() -> new NoSuchElementException("Usuário não encontrado!"));
-	    return mapper.map(user, UserDTO.class);
+		User user = this.userRepository.findById(id)
+				.orElseThrow(() -> new NoSuchElementException("Usuário não encontrado!"));
+		return mapper.map(user, UserDTO.class);
 	}
 
 	public UserDTO findByCpf(String cpf) {
 		User user = this.userRepository.findByCpf(cpf)
-				.orElseThrow(()-> new NoSuchElementException("Usuário não encontrado!"));
+				.orElseThrow(() -> new NoSuchElementException("Usuário não encontrado!"));
 		return mapper.map(user, UserDTO.class);
 	}
 
 	public UserDTO findByEmail(String email) {
 		User user = this.userRepository.findByEmail(email)
-				.orElseThrow(()-> new NoSuchElementException("Usuário não encontrado!"));
+				.orElseThrow(() -> new NoSuchElementException("Usuário não encontrado!"));
 		return mapper.map(user, UserDTO.class);
 	}
 
@@ -70,7 +70,7 @@ public class UserService {
 
 	public void deleteUser(UUID id) {
 		User user = this.userRepository.findById(id)
-		        .orElseThrow(() -> new NoSuchElementException("Usuário não encontrado!"));
+				.orElseThrow(() -> new NoSuchElementException("Usuário não encontrado!"));
 		this.userRepository.delete(user);
 	}
 

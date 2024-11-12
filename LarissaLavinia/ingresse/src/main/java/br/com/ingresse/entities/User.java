@@ -33,37 +33,36 @@ public class User {
 	@Column(updatable = false, nullable = false, columnDefinition = "uuid DEFAULT uuid_generate_v4()")
 	private UUID id;
 	
-	@Column(length = 100, nullable = false)
 	@Setter
+	@Column(length = 100, nullable = false)
 	private String name;
 	
-	@Column(length = 100, nullable = false)
 	@Setter
+	@Column(length = 100, nullable = false)
 	private String email;
 	
-	@Column(length = 255, nullable = false)
 	@Setter
 	@JsonIgnore
+	@Column(length = 255, nullable = false)
 	private String password;
 	
 	@Column(length = 11, nullable = false)
 	@Setter
 	private String cpf;
 	
-	@Column(name= "birth_date", nullable = false)
 	@Setter
+	@Column(name= "birth_date", nullable = false)
 	private LocalDateTime birthDate;
 	
 	@Column(name= "created_at", nullable = false)
 	private LocalDateTime createdDate;
 	
-	@Column(name= "updated_at", nullable = false)
 	@Setter
+	@Column(name= "updated_at", nullable = false)
 	private LocalDateTime updatedDate;
 	
-	
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Order> orders = new ArrayList<>();
 	
 	@PrePersist

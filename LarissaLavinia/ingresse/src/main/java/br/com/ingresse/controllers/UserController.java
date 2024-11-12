@@ -26,12 +26,12 @@ import br.com.ingresse.services.UserService;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping("user")
 @AllArgsConstructor
+@RequestMapping("user")
 public class UserController {
 
-	private final UserService userService;
 	private final ModelMapper mapper;
+	private final UserService userService;
 
 	@GetMapping("/{id}")
 	public ResponseEntity<UserDTO> findOne(@PathVariable UUID id) {
@@ -55,7 +55,7 @@ public class UserController {
 	public ResponseEntity<List<UserDTO>> findAll(@RequestParam(required = false) String name,
 			@RequestParam(required = false) LocalDateTime startDateCreated,
 			@RequestParam(required = false) LocalDateTime endDateCreated) {
-		
+
 		Specification<User> userSpecification = Specification.where(UserSpecification.nameContain(name)
 				.and(UserSpecification.createDateBetween(startDateCreated, endDateCreated)));
 		List<UserDTO> users = userService.findAll(userSpecification);

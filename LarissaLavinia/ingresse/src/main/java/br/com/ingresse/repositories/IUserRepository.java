@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import br.com.ingresse.entities.User;
 
 public interface IUserRepository extends JpaRepository<User, UUID>, JpaSpecificationExecutor<User>{
-	Optional<User> findByEmail(String email);
 	Optional<User> findByCpf(String cpf);
+	Optional<User> findByEmail(String email);
 }

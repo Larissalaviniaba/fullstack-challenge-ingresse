@@ -16,13 +16,13 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Movie {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonIgnoreProperties
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(nullable = false, length = 500)

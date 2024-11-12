@@ -36,28 +36,28 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
 	
-	@Column(name= "total_price", nullable = false)
 	@Setter
+	@Column(name= "total_price", nullable = false)
 	private Double totalPrice;
 	
-	@Column(length = 100, nullable = false)
-	@Enumerated(EnumType.STRING)
 	@Setter
+	@Enumerated(EnumType.STRING)
+	@Column(length = 100, nullable = false)
 	private Status status;
 	
 	@Column(name= "created_at", nullable = false)
 	private LocalDateTime createdDate;
 	
-	@Column(name= "updated_at", nullable = false)
 	@Setter
+	@Column(name= "updated_at", nullable = false)
 	private LocalDateTime updatedDate;
 	
+	@Setter
 	@ManyToOne
 	@JoinColumn(name= "user_id", nullable = false)
-	@Setter
 	private User user;
 	
-	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
+	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<OrderItem> oderItens = new ArrayList<>();
 }

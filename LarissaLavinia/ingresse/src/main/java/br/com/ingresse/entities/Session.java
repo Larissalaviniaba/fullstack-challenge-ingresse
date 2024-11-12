@@ -23,38 +23,38 @@ import lombok.Setter;
 
 @Entity
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Session {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
 	
-	@Column(name="available_total_seats", nullable = false)
 	@Setter
+	@Column(name="available_total_seats", nullable = false)
 	private Integer availableTotalSeats;
 	
-	@Column(name= "is_active", nullable = false)
 	@Setter
+	@Column(name= "is_active", nullable = false)
 	private boolean isActive;
 	
-	@Column(name= "start_time", nullable = false)
 	@Setter
+	@Column(name= "start_time", nullable = false)
 	private LocalDateTime startTime;
 	
-	@Column(name= "end_time", nullable = false)
 	@Setter
+	@Column(name= "end_time", nullable = false)
 	private LocalDateTime endTime;
 	
 	@Column(name= "created_at", nullable = false)
 	private LocalDateTime createdDate;
 	
-	@Column(name= "updated_at", nullable = false)
 	@Setter
+	@Column(name= "updated_at", nullable = false)
 	private LocalDateTime updatedDate;
 	
-	@OneToMany(mappedBy = "session", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
+	@OneToMany(mappedBy = "session", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Ticket> tickets = new ArrayList<>();
 	
 	@ManyToOne()
